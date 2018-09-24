@@ -1,0 +1,44 @@
+<html>
+<head>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.19.1/vis.min.css"
+	rel="stylesheet" type="text/css" />
+
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.19.1/vis.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"></script>
+<script src="https://deloitteplayground.my.salesforce.com/lightning/lightning.out.js"></script>
+	
+</head>
+<body>
+<div id="waveresponse"></div>
+<div id="status"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var accessToken = decodeURI(GetURLParameter('access_token'));			
+          console.log("Access Token is : " + accessToken);
+		  $Lightning.use("c:dashboardEmbed",function(){
+			$Lightning.createComponent("c:lightningdashboard",{},"waveresponse",function(cmp){});
+		  },"https://deloitteplayground.lightning.force.com",accessToken);
+           //Use this function to get the access token from the URL
+           function GetURLParameter(sParam)
+            {
+              var mainURL = document.location+'';
+              var pageUrls = mainURL.split('#');
+              var sURLVariables = pageUrls[1].split('&');
+              for (var i = 0; i < sURLVariables.length; i++) 
+                {
+                  var sParameterName = sURLVariables[i].split('=');
+                  if (sParameterName[0] == sParam) 
+                    {
+                      return sParameterName[1];
+                      }
+                  }
+               }
+});
+</script>
+</body>
+</html>
