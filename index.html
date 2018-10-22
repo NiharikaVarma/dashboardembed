@@ -31,8 +31,9 @@
 
     // This is the ID of the Analytics dashboard that you wish to display
     var dashboardId = '0FK7F000000IOEqWAO'; 
+    var dataset = 'DTC_Opportunity_SAMPLE';
     var field = 'Billing_Country';
-       var filtervalues = 'USA';
+    var filtervalues = 'USA';
     var oauth = force.OAuth.createInstance(appId, loginURL, oauthCallbackURL);
 
     function showDashboard(el) {
